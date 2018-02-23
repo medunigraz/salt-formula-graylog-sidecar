@@ -11,4 +11,4 @@ Suse:
   service: collector-sidecar.service
 {%- endload %}
 
-{%- set agent = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('graylog-collector-sidecar:agent')) %}
+{%- set agent = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('graylog_collector_sidecar:agent')) %}

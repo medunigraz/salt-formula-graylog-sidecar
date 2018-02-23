@@ -1,4 +1,4 @@
-{%- from "graylog-collector-sidecar/map.jinja" import agent with context -%}
+{%- from "graylog_collector_sidecar/map.jinja" import agent with context -%}
 {%- set host = salt['grains.get']('host') %}
 server_url: {{ agent.api }}
 update_interval: 10
