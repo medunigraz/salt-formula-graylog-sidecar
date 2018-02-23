@@ -1,0 +1,5 @@
+salt-formula-graylog-collector (2018.1) stretch; urgency=medium
+
+  * Initial release
+
+ -- Michael Fladischer michael@fladi.at  Wed, 21 Feb 2018 09:38:15 GMT

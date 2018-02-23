@@ -1,0 +1,10 @@
+applications:
+- graylog-collector-sidecar
+classes:
+- service.graylog-collector-sidecar.support
+parameters:
+  graylog-collector-sidecar:
+    server:
+      enabled: true
+      bind:
+        address: 0.0.0.0

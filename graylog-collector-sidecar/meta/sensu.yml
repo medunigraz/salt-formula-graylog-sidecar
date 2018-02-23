@@ -1,0 +1,8 @@
+# Sample check
+check:
+  local_graylog-collector-sidecar_proc:
+    command: "PATH=$PATH:/usr/lib64/nagios/plugins:/usr/lib/nagios/plugins check_procs -C graylog-collector-sidecar -u graylog-collector-sidecar -c 1:1"
+    interval: 60
+    occurrences: 1
+    subscribers:
+    - local-graylog-collector-sidecar-server

@@ -1,0 +1,15 @@
+Source: salt-formula-graylog-collector
+Maintainer: Michael Fladischer <michael@fladi.at>
+Section: admin
+Priority: optional
+Build-Depends: debhelper (>= 9), salt-master, python, python-yaml
+Standards-Version: 3.9.6
+Homepage: https://github.com/fladi/graylog-collector
+Vcs-Browser: https://github.com/salt-formulas/salt-formula-graylog-collector
+Vcs-Git: https://github.com/salt-formulas/salt-formula-graylog-collector.git
+
+Package: salt-formula-graylog-collector
+Architecture: all
+Depends: ${misc:Depends}
+Description: graylog-collector salt formula
+ Install and configure graylog-collector.

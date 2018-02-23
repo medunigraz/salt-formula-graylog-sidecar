@@ -1,0 +1,12 @@
+{%- from "graylog-collector-sidecar/map.jinja" import agent with context %}
+# Fill in documentation details
+doc:
+  name: graylog-collector-sidecar
+  description: Some service info
+  role:
+    server:
+      name: server
+      param:
+        some_param:
+          name: "Some name"
+          value: "some value"
