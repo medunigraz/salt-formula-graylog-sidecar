@@ -1,12 +1,12 @@
-{%- from "graylog_collector_sidecar/map.jinja" import agent with context %}
+{%- from "graylog_collector_sidecar/map.jinja" import sidecar with context %}
 {%- set noservices = salt['grains.get']('noservices', None) %}
 
-{%- if agent.enabled %}
+{%- if sidecar.enabled %}
 
 graylog_collector_sidecar_package:
   pkg.installed:
   - sources:
-    - collector-sidecar: {{ agent.pkgurl }}
+    - collector-sidecar: {{ sidecar.pkgurl }}
 
 graylog_collector_sidecar_service_install:
   cmd.wait:
@@ -31,7 +31,7 @@ graylog_collector_sidecar_config:
 
 graylog_collector_sidecar_service:
   service.running:
-    - name: {{ agent.service }}
+    - name: {{ sidecar.service }}
     - reload: true
     - enable: true
     {%- if noservices %}
@@ -52,7 +52,7 @@ graylog_collector_sidecar_service_uninstall:
 
 graylog_collector_sidecar_service_dead:
   service.dead:
-  - name: {{ agent.service }}
+  - name: {{ sidecar.service }}
   {%- if noservices %}
   - onlyif: /bin/false
   {%- endif %}
