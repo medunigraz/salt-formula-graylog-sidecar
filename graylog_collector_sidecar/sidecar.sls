@@ -32,7 +32,6 @@ graylog_collector_sidecar_config:
 graylog_collector_sidecar_service:
   service.running:
     - name: {{ sidecar.service }}
-    - reload: true
     - enable: true
     {%- if noservices %}
     - onlyif: /bin/false
