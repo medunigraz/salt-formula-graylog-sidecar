@@ -12,8 +12,8 @@ cache_path: /var/cache/graylog/collector-sidecar
 log_path: /var/log/graylog/collector-sidecar
 log_rotation_time: 86400
 log_max_age: 604800
-{%- if 'tags' in sidecar %}
 tags:
+{%- if 'tags' in sidecar %}
 {%- for tag in sidecar['tags'] %}
   - {{ tag }}
 {%- endfor %}
