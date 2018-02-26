@@ -1,4 +1,4 @@
-{%- from "graylog_sidecar_collector/map.jinja" import agent with context %}
+{%- from "graylog_collector_sidecar/map.jinja" import agent with context %}
 {%- set noservices = salt['grains.get']('noservices', None) %}
 
 {%- if agent.enabled %}
