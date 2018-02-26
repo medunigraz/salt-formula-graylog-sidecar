@@ -12,17 +12,19 @@ cache_path: /var/cache/graylog/collector-sidecar
 log_path: /var/log/graylog/collector-sidecar
 log_rotation_time: 86400
 log_max_age: 604800
+{%- if sidecar.tags %}
 tags:
-    {%- for tag in sidecar.tags %}
-    - {{ tag }}
-    {%- endfor %}
+{%- for tag in sidecar.tags %}
+  - {{ tag }}
+{%- endfor %}
+{%- endif %}
 backends:
-    - name: nxlog
-      enabled: false
-      binary_path: /usr/bin/nxlog
-      configuration_path: /etc/graylog/collector-sidecar/generated/nxlog.conf
-    - name: filebeat
-      enabled: true
-      binary_path: /usr/bin/filebeat
-      configuration_path: /etc/graylog/collector-sidecar/generated/filebeat.yml
+  - name: nxlog
+    enabled: false
+    binary_path: /usr/bin/nxlog
+    configuration_path: /etc/graylog/collector-sidecar/generated/nxlog.conf
+  - name: filebeat
+    enabled: true
+    binary_path: /usr/bin/filebeat
+    configuration_path: /etc/graylog/collector-sidecar/generated/filebeat.yml
 
