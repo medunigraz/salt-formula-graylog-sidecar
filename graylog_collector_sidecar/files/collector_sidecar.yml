@@ -1,3 +1,4 @@
+# SALT VARIABLES - DO NOT EDIT
 {%- from "graylog_collector_sidecar/map.jinja" import agent with context -%}
 {%- set host = salt['grains.get']('host') %}
 server_url: {{ agent.api }}
