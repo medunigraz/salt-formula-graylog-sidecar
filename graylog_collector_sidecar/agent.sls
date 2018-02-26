@@ -19,7 +19,7 @@ graylog_collector_sidecar_service_install:
     - require:
       - pkg: graylog_collector_sidecar_package
 
-graylog_collector_sidecar_ports_config:
+graylog_collector_sidecar_config:
   file.managed:
   - name: /etc/graylog/collector-sidecar/collector_sidecar.yml
   - source: salt://graylog_collector_sidecar/files/collector_sidecar.yml
