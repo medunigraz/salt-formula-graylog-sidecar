@@ -1,5 +1,5 @@
 {%- set osarch = salt['grains.get']('osarch') %}
-{% set version = '0.1.6' %}
+{% set version = '0.1.7' %}
 {%- load_yaml as base_defaults %}
 Debian:
   pkgurl: https://github.com/Graylog2/collector-sidecar/releases/download/{{ version }}/collector-sidecar_{{ version }}-1_{{ osarch }}.deb
