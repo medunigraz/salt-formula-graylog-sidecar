@@ -3,10 +3,11 @@
 
 {%- if sidecar.enabled %}
 
-graylog_sidecar_package:
+graylog_sidecar_packages:
   pkg.installed:
   - sources:
-    - graylog-sidecar: {{ sidecar.pkgurl }}
+    - graylog-sidecar: {{ sidecar.sidecar }}
+    - filebeat: {{ sidecar.filebeat }}
 
 graylog_sidecar_service_install:
   cmd.wait:
@@ -15,9 +16,9 @@ graylog_sidecar_service_install:
     - onlyif: /bin/false
     {%- endif %}
     - watch:
-      - pkg: graylog_sidecar_package
+      - pkg: graylog_sidecar_packages
     - require:
-      - pkg: graylog_sidecar_package
+      - pkg: graylog_sidecar_packages
 
 graylog_sidecar_config:
   file.managed:
@@ -25,7 +26,7 @@ graylog_sidecar_config:
   - source: salt://graylog_sidecar/files/sidecar.yml
   - template: jinja
   - require:
-    - pkg: graylog_sidecar_package
+    - pkg: graylog_sidecar_packages
   - watch_in:
     - service: graylog_sidecar_service
 
@@ -37,7 +38,7 @@ graylog_sidecar_service:
     - onlyif: /bin/false
     {%- endif %}
     - require:
-      - pkg: graylog_sidecar_package
+      - pkg: graylog_sidecar_packages
 
 {%- else %}
 
@@ -45,9 +46,9 @@ graylog_sidecar_service_uninstall:
   cmd.wait:
     - name: graylog-sidecar -service uninstall
     - watch:
-      - pkg: graylog_sidecar_package
+      - pkg: graylog_sidecar_packages
     - require:
-      - pkg: graylog_sidecar_package
+      - pkg: graylog_sidecar_packages
 
 graylog_sidecar_service_dead:
   service.dead:
