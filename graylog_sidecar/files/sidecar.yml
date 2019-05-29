@@ -1,0 +1,4 @@
+# SALT VARIABLES - DO NOT EDIT
+{%- from "graylog_collector_sidecar/map.jinja" import sidecar with context %}
+server_url: {{ sidecar.api }}
+server_api_token: {{ sidecar.token }}

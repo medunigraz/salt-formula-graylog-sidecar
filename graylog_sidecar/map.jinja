@@ -1,0 +1,15 @@
+{%- set osarch = salt['grains.get']('osarch') %}
+{% set version = '1.0.1' %}
+{%- load_yaml as base_defaults %}
+Debian:
+  pkgurl: https://github.com/Graylog2/collector-sidecar/releases/download/{{ version }}/graylog-sidecar_{{ version }}-1_{{ osarch }}.deb
+  service: graylog-sidecar.service
+RedHat:
+  pkgurl: https://github.com/Graylog2/collector-sidecar/releases/download/{{ version }}/graylog-sidecar_{{ version }}-1.{{ osarch }}.rpm
+  service: graylog-sidecar.service
+Suse:
+  pkgurl: https://github.com/Graylog2/collector-sidecar/releases/download/{{ version }}/graylog-sidecar_{{ version }}-1.{{ osarch }}.rpm
+  service: graylog-sidecar.service
+{%- endload %}
+
+{%- set sidecar = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('graylog:sidecar')) %}
