@@ -3,11 +3,18 @@
 
 {%- if sidecar.enabled %}
 
+graylog_sidecar_cleanup:
+  pkg.purged:
+    - pkgs:
+      - collector-sidecar
+
 graylog_sidecar_packages:
   pkg.installed:
-  - sources:
-    - graylog-sidecar: {{ sidecar.sidecar }}
-    - filebeat: {{ sidecar.filebeat }}
+    - sources:
+      - graylog-sidecar: {{ sidecar.sidecar }}
+      - filebeat: {{ sidecar.filebeat }}
+    - require:
+      - pkg: graylog_sidecar_cleanup
 
 graylog_sidecar_service_install:
   cmd.wait:
