@@ -7,11 +7,11 @@ Debian:
   filebeat: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-{{ osarch }}.deb
   service: graylog-sidecar.service
 RedHat:
-  sidecar: https://github.com/Graylog2/collector-sidecar/releases/download/{{ sidecar_version }}/graylog-sidecar_{{ sidecar_version }}-1.{{ osarch }}.rpm
+  sidecar: https://github.com/Graylog2/collector-sidecar/releases/download/{{ sidecar_version }}/graylog-sidecar-{{ sidecar_version }}-1.{{ osarch }}.rpm
   filebeat: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-{{ osarch }}.rpm
   service: graylog-sidecar.service
 Suse:
-  sidecar: https://github.com/Graylog2/collector-sidecar/releases/download/{{ sidecar_version }}/graylog-sidecar_{{ sidecar_version }}-1.{{ osarch }}.rpm
+  sidecar: https://github.com/Graylog2/collector-sidecar/releases/download/{{ sidecar_version }}/graylog-sidecar-{{ sidecar_version }}-1.{{ osarch }}.rpm
   filebeat: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-{{ osarch }}.rpm
   service: graylog-sidecar.service
 {%- endload %}
