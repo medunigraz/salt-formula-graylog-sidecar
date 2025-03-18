@@ -47,21 +47,4 @@ graylog_sidecar_service:
     - require:
       - pkg: graylog_sidecar_packages
 
-{%- else %}
-
-graylog_sidecar_service_uninstall:
-  cmd.wait:
-    - name: graylog-sidecar -service uninstall
-    - watch:
-      - pkg: graylog_sidecar_packages
-    - require:
-      - pkg: graylog_sidecar_packages
-
-graylog_sidecar_service_dead:
-  service.dead:
-  - name: {{ sidecar.service }}
-  {%- if noservices %}
-  - onlyif: /bin/false
-  {%- endif %}
-
 {%- endif %}
