@@ -3,6 +3,6 @@
 server_url: {{ sidecar.api }}
 server_api_token: {{ sidecar.token }}
 tags:
-{% for tag in salt['pillar.get']('graylog:sidecar:tags', []) %}
+{%- for tag in salt['pillar.get']('graylog:sidecar:tags', []) %}
   - {{ tag }}
-{% endfor %}
+{%- endfor %}
